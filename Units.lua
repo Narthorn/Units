@@ -1,5 +1,6 @@
 Units = setmetatable({}, {
 	__call = function(units, strName)
+		if not strName then return units end
 		local found = {}
 		for id, unit in pairs(units) do
 			if unit and unit:GetName():lower():find(strName:lower()) then
