@@ -1,12 +1,21 @@
-Units = setmetatable({}, {__call = function(units, strName)
-	local found = {}
-	for id, unit in pairs(units) do
-		if unit and unit:GetName():lower():find(strName:lower()) then
-			found[id] = unit
+Units = setmetatable({}, {
+	__call = function(units, strName)
+		local found = {}
+		for id, unit in pairs(units) do
+			if unit and unit:GetName():lower():find(strName:lower()) then
+				found[id] = unit
+			end
+		end
+		return found
+	end,
+	__index = function(units, strName)
+		for id, unit in pairs(units) do
+			if unit and unit:GetName():lower():find(strName:lower()) then
+				return unit
+			end
 		end
 	end
-	return found
-end})
+})
 
 local Units = Units
 local Event = Apollo.RegisterEventHandler
