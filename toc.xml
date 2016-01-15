@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Addon Author="Vim" APIVersion="11" Name="Units" Description="Keeps track of every in-game unit." Version="">
+    <Script Name="Units.lua"/>
+</Addon>
